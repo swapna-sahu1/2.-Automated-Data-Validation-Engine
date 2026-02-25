@@ -1,11 +1,11 @@
-#  Enterprise Data Migration System
+# Automated Data Reconciliation Engine
 
 ##  Overview
-The Enterprise Data Migration System is a Node.js-based ETL application that simulates real-world legacy-to-cloud database migration. 
+The Automated Data Reconciliation Engine is a Node.js application designed to validate and verify database migrations by comparing legacy and migrated datasets.
 
-It extracts structured data from a legacy schema, applies transformation and normalization logic, loads the data into an optimized schema, and generates validation reports to ensure migration accuracy.
+It performs record-level validation, detects missing records, and generates discrepancy reports in CSV format to ensure post-migration data integrity.
 
-This project demonstrates practical knowledge of SQL, data transformation, and post-migration validation processes.
+This project simulates enterprise-grade migration verification workflows.
 
 ---
 
@@ -15,82 +15,86 @@ This project demonstrates practical knowledge of SQL, data transformation, and p
 - Express.js
 - MySQL
 - EJS
+- json2csv
 - Bootstrap
 
 ---
 
-##  Key Features
+## Key Features
 
-- Extracts data from legacy database
-- Applies transformation logic:
-  - Name splitting (full name → first & last name)
-  - Email normalization (lowercase)
-  - Date format conversion
-- Loads data into normalized schema
-- Detects duplicate records using constraints
-- Generates migration summary report
-- Compares legacy and migrated record counts
+- Compares legacy and migrated datasets
+- Detects:
+  - Missing records
+  - Email mismatches
+- Generates CSV discrepancy report
+- Displays reconciliation summary dashboard
+- Validates record counts
 
 ---
 
-## 🗄 Database Schema
+## Database Structure
 
 ### Legacy Table
 - id
 - full_name
 - email
-- dob (string format)
+- dob
 
-### Normalized Table
-- user_id (Primary Key)
+### Migrated Table
+- user_id
 - first_name
 - last_name
-- email (Unique)
-- dob (DATE type)
+- email
+- dob
 
 ---
 
 ##  Installation & Setup
 
-1. Clone the repository
-
+1. Clone repository
 2. Install dependencies
-
-3. Configure MySQL database
-
-Create database:
-4. Update database credentials in:
-
-5. Run the application
-
+3. Create MySQL database
+4. Update credentials in:
+5. Run application
 6. Open browser
-
 ---
 
-##  Sample Output
+##  Output
 
 - Total legacy records
 - Total migrated records
-- Successfully migrated count
-- Duplicate records skipped
+- Missing record count
+- CSV discrepancy report generated automatically
+
+---
+
+##  Example CSV Report
+
+| email           | issue                     |
+|-----------------|--------------------------|
+| alex@email.com  | Missing in migrated table |
 
 ---
 
 ##  Learning Outcomes
 
-- Understanding ETL (Extract, Transform, Load)
-- Data normalization techniques
-- Duplicate detection
-- Migration validation strategies
-- SQL-based integrity verification
+- Post-migration data validation
+- Record-level reconciliation logic
+- CSV report generation
+- SQL-based dataset comparison
+- Enterprise data integrity verification
 
 ---
 
+## Resume Highlight
 
-##  Future Improvements
+Developed an automated reconciliation engine to validate migrated datasets by detecting missing and inconsistent records and generating structured CSV discrepancy reports.
 
-- Batch migration processing
-- Field-level mismatch reporting
-- Hash-based reconciliation
-- CSV upload support
-- Cloud deployment
+---
+## Future Improvements
+
+- Field-level comparison validation
+- Hash-based integrity checking
+- Downloadable CSV button
+- UI-based dataset upload
+- Audit logging system
